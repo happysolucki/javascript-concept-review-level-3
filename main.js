@@ -37,17 +37,22 @@ const exercise3 = () => {
 
 // Ex 4. loop prompt; end when q is entered
 const exercise4 = () => {
+  // declare array that contains accepted value
+  const accepted = ['1','2','3'];
   // initialize boolean that will be used in while loop
   let continueLooping = true;
-  let answer = prompt("Exercise 4:\nEnter anything. Enter 'q' to quit.");
+  let answer = prompt("Exercise 4:\nEnter 1,2, or 3. Enter 'q' to quit.");
   while (continueLooping) {
     // if user quits, quit loop
     if (answer.toUpperCase() === "Q") continueLooping = false;
     // if user doesn't quit, prompt user for another entry
-    else
+    else if (accepted.indexOf(answer) > -1)
       answer = prompt(
-        `Exercise 4:\nPrevious entry: ${answer}\nEnter anything. Enter 'q' to quit.`
+        `Exercise 4:\nPrevious entry: ${answer}\nEnter 1,2, or 3. Enter 'q' to quit.`
       );
+    else {
+      answer = prompt("ERROR! Please enter 1,2, or 3. Enter 'q' to quit.")
+    }
   }
 };
 
